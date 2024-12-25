@@ -72,3 +72,5 @@ docker-compose.override.yml
 Thumbs.db
 Desktop.ini
 .DS_Store
+/RaceMng.DB/RaceMng.DB.dbmdl
+/RaceMng.DB/RaceMng.DB.jfm
