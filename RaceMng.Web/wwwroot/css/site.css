@@ -1,0 +1,86 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media print {
+  * {
+    color: black;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+.modal-backdrop {
+  height:100%;
+  width: 100%;
+}
+
+.ui-autocomplete {
+  /*position: fixed;*/
+  z-index: 2147483647;
+}
+
+.form-control {
+  padding: .375rem 0.75rem !important;
+  font-size: 1rem;
+}
+
+.icon24 {
+  width: 24px;
+  height: 24px;
+}
+
+
+/*Start list*/
+.list-cat-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.list-cat-block {
+  page-break-inside: avoid
+}
+
+
+
+.w-10 {
+  width: 10%;
+}
+
+.w-15 {
+  width: 15%;
+}
+
+.w-20
+{
+  width: 20%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-40 {
+  width: 40%;
+}

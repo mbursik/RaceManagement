@@ -1,0 +1,177 @@
+﻿@using RaceMng.Models.VM
+
+@model RaceListVM
+
+@{
+  ViewData["Title"] = "Index";
+}
+
+<div class="card">
+  <div class="card-header">
+    Závod
+  </div>
+  <div class="card-body">
+    <div class="d-inline">
+      <button type="button" class="btn btn-primary" data-toggle="show-modal" data-actname="" data-url="@Url.Action("CreateCompetitorCategory")">Přidat účastníka</button>
+      <button id="btnStartList" type="button" class="btn btn-primary">Startovní listina</button>
+      <button id="btnResults" type="button" class="btn btn-primary">Výsledková listina</button>
+      <button type="button" class="btn btn-primary" data-toggle="show-modal" data-url="@Url.Action("AddTimes")">Vložit časy</button>
+    </div>
+
+    <form id="formIndex" asp-action="Index" asp-controller="Race" method="post">
+      <div class="col-auto">
+        <label>Kategorie:</label>
+        <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control">
+          <option value="">-- Vyberte --</option>
+        </select>
+      </div>
+
+      <input asp-for="SortField" type="hidden" />
+      <input asp-for="SortDirection" type="hidden" />
+    </form>
+  </div>
+</div>
+
+@*<p>
+  <button type="button" class="btn btn-primary" data-toggle="show-modal" data-actname="" data-url="@Url.Action("CreateCompetitorCategory")">Přidat účastníka</button>
+  <button id="btnStartList" type="button" class="btn btn-primary">Startovní listina</button>
+  <button id="btnResults" type="button" class="btn btn-primary">Výsledková listina</button>
+</p>
+
+
+<form id="formIndex" asp-action="Index" asp-controller="Race" method="post">
+  <div class="col-auto">
+    <label>Kategorie:</label>
+    <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control">
+      <option value="">-- Vyberte --</option>
+    </select>
+  </div>
+
+  <input asp-for="SortField" type="hidden" />
+  <input asp-for="SortDirection" type="hidden" />
+</form>*@
+<div class="card">
+  <div class="card-body">
+    <table class="table table-sm table-bordered table-hover">
+      <thead>
+        <tr>
+          <th class="text-center">
+            <a href="#" data-sortfield="FirstName" class="header">@Html.DisplayNameFor(model => model.CompetitorCategories![0].Competitor.FirstName)</a>
+          </th>
+          <th class="text-center">
+            <a href="#" data-sortfield="LastName" class="header">@Html.DisplayNameFor(model => model.CompetitorCategories![0].Competitor.LastName)</a>
+          </th>
+          <th class="text-center">
+            <a href="#" data-sortfield="Number" class="header">@Html.DisplayNameFor(model => model.CompetitorCategories![0].Number)</a>
+          </th>
+          <th class="text-center">
+            <a href="#" data-sortfield="BirthYear" class="header">@Html.DisplayNameFor(model => model.CompetitorCategories![0].Competitor.BirthYear)</a>
+          </th>
+          <th class="text-center">
+            <a href="#" data-sortfield="Team" class="header">@Html.DisplayNameFor(model => model.CompetitorCategories![0].Competitor.Team)</a>
+          </th>
+          <th class="text-center">
+            <a href="#" data-sortfield="CategoryName" class="header">@Html.DisplayNameFor(model => model.CompetitorCategories![0].Category.Name)</a>
+          </th>
+          <th class="text-center">
+            <a href="#" data-sortfield="Time" class="header">@Html.DisplayNameFor(model => model.CompetitorCategories![0].Time)</a>
+          </th>
+          <th class="text-center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (Model.CompetitorCategories != null)
+        {
+          @foreach (var item in Model.CompetitorCategories)
+          {
+            <tr>
+              <td class="px-2 py-0">
+                @Html.DisplayFor(modelItem => item.Competitor.FirstName)
+              </td>
+              <td class="px-2 py-0">
+                @Html.DisplayFor(modelItem => item.Competitor.LastName)
+              </td>
+              <td class="px-2 py-0 text-end">
+                @Html.DisplayFor(modelItem => item.Number)
+              </td>
+              <td class="px-2 py-0 text-end">
+                @Html.DisplayFor(modelItem => item.Competitor.BirthYear)
+              </td>
+              <td class="px-2 py-0">
+                @Html.DisplayFor(modelItem => item.Competitor.Team)
+              </td>
+              <td class="px-2 py-0">
+                @Html.DisplayFor(modelItem => item.Category.Name)
+              </td>
+              <td class="px-2 py-0 text-end">
+                @Html.DisplayFor(modelItem => item.Time)
+              </td>
+              <td class="px-2 py-0">
+                <span style="white-space: nowrap">
+                  <input type="image" src="~/img/edit-48.png" class="icon24" title="Editovat" data-toggle="show-modal" data-actname="" data-url="@Url.Action("EditCompetitorCategory","Race", new{ categoryId=item.CategoryId, competitorId=item.CompetitorId })" /> <span class="align-top">|</span>
+                  <input type="image" src="~/img/cancel-48.png" class="icon24" title="Odstranit" data-toggle="show-confirm" data-actname="" data-url="@Url.Action("DeleteCompetitorCategory","Race", new{ categoryId=item.CategoryId, competitorId=item.CompetitorId })" />
+                </span>
+                @*@Html.ActionLink("Edit", "EditCompetitorCategory","Race", new { categoryId=item.Category_Id, competitorId=item.Competitor_Id })
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+              </td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="placeholder-modal"></div>
+<div id="placeholder-confirm"></div>
+
+@section Scripts {
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $("#CategoryId").change(e => {
+            e.preventDefault();
+            $("#formIndex").submit();
+        });
+
+        //sorting
+        $(".header").click(e => {
+            var sortfield = $(e.target).data("sortfield");
+            if ($("#SortField").val() == sortfield) {
+                if ($("#SortDirection").val() == "asc") {
+                    $("#SortDirection").val("desc");
+                }
+                else {
+                    $("#SortDirection").val("asc");
+                }
+            }
+            else {
+                $("#SortField").val(sortfield);
+                $("#SortDirection").val("asc");
+            }
+            e.preventDefault();
+            $("#formIndex").submit();
+        });
+
+        //starting list
+        $("#btnStartList").click(e => {
+
+            window.open('@Url.Action("StartList","Race")?categoryId=' + $("#CategoryId").val(), '_blank');
+        });
+
+
+        //results
+        $("#btnResults").click(e => {
+            window.open('@Url.Action("Results","Race")?categoryId=' + $("#CategoryId").val(), '_blank');
+        });
+
+
+    @* $(".pager").click(function (evt) {
+          var pageindex = $(evt.target).data("pageindex");
+          $("#CurrentPageIndex").val(pageindex);
+          evt.preventDefault();
+          $("form").submit();
+          });*@
+        });
+  </script>
+}

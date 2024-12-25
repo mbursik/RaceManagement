@@ -1,0 +1,74 @@
+﻿@using RaceMng.Models.VM
+
+@model List<StartListVM>
+
+@{
+  Layout = "~/Views/Shared/_LayoutMin.cshtml";
+  ViewData["Title"] = "Startovní listina";
+}
+
+<h4>Startovní listina</h4>
+
+@foreach (var item in Model)
+{
+  <div class="list-cat-block">
+    <div class="list-cat-title ">@item.Category.Name - @item.Category.Distance m</div>
+    <div style="text-align:right">Počet: @item.CompetitorCategories?.Count</div>
+    @if (item.CompetitorCategories != null)
+    {
+      <table class="table table-bordered table-sm">
+        <thead>
+          <tr>
+            <th class="w-20">
+              @Html.DisplayNameFor(model => item.CompetitorCategories[0].Competitor!.FirstName)
+            </th>
+            <th class="w-20">
+              @Html.DisplayNameFor(model => item.CompetitorCategories[0].Competitor!.LastName)
+            </th>
+            <th class="w-10 text-center">
+              @Html.DisplayNameFor(model => item.CompetitorCategories[0].Number)
+            </th>
+            <th class="w-10 text-center">
+              @Html.DisplayNameFor(model => item.CompetitorCategories[0].Competitor!.BirthYear)
+            </th>
+            <th class="w-40">
+              @Html.DisplayNameFor(model => item.CompetitorCategories[0].Competitor!.Team)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (var cc in item.CompetitorCategories)
+          {
+            <tr>
+              <td class="py-0 w-20">
+                @Html.DisplayFor(modelItem => cc.Competitor!.FirstName)
+              </td>
+              <td class="py-0 w-20">
+                @Html.DisplayFor(modelItem => cc.Competitor!.LastName)
+              </td>
+              <td class="py-0 w-10 text-end">
+                @Html.DisplayFor(modelItem => cc.Number)
+              </td>
+              <td class="py-0 w-10 text-center">
+                @Html.DisplayFor(modelItem => cc.Competitor!.BirthYear)
+              </td>
+              <td class="py-0 w-40">
+                @Html.DisplayFor(modelItem => cc.Competitor!.Team)
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </div>
+}
+
+
+
+@section Scripts {
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+    });
+  </script>
+}

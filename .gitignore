@@ -1,0 +1,74 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+# Build výsledky
+bin/
+obj/
+out/
+
+# Uživatelské specifické soubory
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Nastavení serveru
+.vscode/
+*.psess
+
+# Logy, Lock soubory
+*.log
+*.lock
+*.cache
+*.env
+
+# Temporary soubory
+*.tmp
+*.pdb
+*.old
+*.bak
+*.swp
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio 2019/2022
+.vs/
+
+# Paket (NuGet a podobně)
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Rider (JetBrains)
+.idea/
+*.sln.iml
+
+# ReSharper
+*.DotSettings.user
+_ReSharper*/ 
+
+# Soubory s klíči nebo připojovacími údaji
+secrets.json
+*.key
+
+# Webový projekt
+node_modules/
+bower_components/
+lib/
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# Nástroje
+*.vsix
+*.apk
+*.ipa
+
+# OS specifické soubory
+Thumbs.db
+Desktop.ini
+.DS_Store

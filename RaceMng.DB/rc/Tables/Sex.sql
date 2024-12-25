@@ -1,0 +1,6 @@
+﻿CREATE TABLE [rc].[Sex]
+(
+  [Id] INT NOT NULL IDENTITY (1,1), 
+  [Name] VARCHAR(10) NOT NULL,
+  CONSTRAINT [PK_Sex] PRIMARY KEY ([Id]),
+)

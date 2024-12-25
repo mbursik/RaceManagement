@@ -1,0 +1,78 @@
+﻿@{
+  ViewData["Title"] = "Home Page";
+}
+
+<div class="text-justify">
+  <h1 class="display-4">O TJ Sokol Díly</h1>
+
+  <label for="expirationdate">Expiration (mm/yy)</label>
+  <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+
+  <p>TJ Sokol Díly byla založena na ustavující schůzi 6.11.1960. 20 zakládajících členů, největší podíl na založení měli Václav Petržík, Martin Kuneš, Josef Kapic a Josef Konopík. Byly založeny oddíly ZRTV a lyžařský. První větší akcí nové jednoty bylo vybudování hřiště v létech 1961-1963.</p>
+
+  <h2>ZRTV</h2>
+  <p>1961 až 1968 se cvičí v sále u Melhonzů, 1968-1971 v malém sále u Vítů. V roce 1978 se opět začíná cvičit v novém víceúčelovém sále OÚ. Cvičí všechny kategorie, vyvrcholením cvičebního roku byly tělovýchovné akademie, poslední se uskutečnila 9.6.1988 . Pravidelné cvičení – dnes oddílu rekreačního sportu – probíhají nepřetržitě do dnešních dnů.</p>
+  <h2>Lyžařský oddíl</h2>
+  <p>Lyžařský oddíl založen na tradici lyžování v obci a na předválečných úspěších dílských rodáků bratří Kreuzů, Langa a Královce. Hlavními organizátory a trenéry po založení oddílu Martin Anderle a Jakub Kreuz.V roce 1962 založen lyžařský závod „Napříč Haltravou“, pořádaný každoročně s velkou účastí závodníků z celého kraje. Poslední 26. ročník se jel 16.3.1988 s účastí 138 závodníků. Nepříznivé sněhové podmínky v dalších létech neumožnily v tradici závodu pokračovat. Mimo lyžařské závody organizuje LO přespolní běhy a turistické pochody. 1. ročník květnového „Běhu osvobození“ se uskutečnil 9.5.1972.</p>
+  <h2>Tenisový oddíl</h2>
+  <p>V letech 1984-1987 vybudovali členové TJ 3 tenisové kurty. Byl založen tenisový oddíl, který uspokojuje zájemce o tenis z řad mládeže i dospělých. Oddíl hraje okresní soutěž.</p>
+  <h2>Kuželkářský oddíl</h2>
+  <img src="Image/Sokol/kuzelky1.jpg" alt="" style="float: right; padding: 0px 0px 5px 5px;" />
+  <p>V letech 1988-1989 byl na Dílech v akci „Z“ postaven 2 dráhový kuželník. V roce 1990 byl založen oddíl kuželek, ve kterém je registrováno cca 35 členů. 1 družstvo hraje krajský přebor, 2 družstva okresní soutěž. Významných úspěchů dosahují členové ve vyšších přeborech jednotlivců. Každoročně se hraje pouťový turnaj o putovní cenu Koziny.</p>
+  <p>Po vybudování víceúčelového sálu organizuje výbor TJ kulturní a společenské akce. Kromě každoročního sokolského bálu, bálů pro děti a tanečních zábav jsme uspořádali vystoupení Waldemara Matušky (19.11.1982), Karla Černocha (13.12.1985) a Michala Tučného (6.9.1986) TJ Sokol má cca 200 členů.</p>
+</div>
+
+
+
+@section Scripts {
+
+  <script type="text/javascript">
+    $(function () {
+
+      const time = $("#expirationdate").get(0); // document.getElementById('expirationdate');
+
+
+      var time_mask = new IMask(time, {
+        mask: 'HH{:}MM{:}SS',
+        blocks: {
+          HH: {
+            mask: IMask.MaskedRange,
+            from: 0,
+            to: 23
+          },
+          MM: {
+            mask: IMask.MaskedRange,
+            from: 0,
+            to: 59
+          },
+          SS: {
+            mask: IMask.MaskedRange,
+            from: 0,
+            to: 59
+          }
+        }
+      });
+
+
+      const expirationdate = document.getElementById('expirationdate');
+      // var expirationdate_mask = new IMask(expirationdate, {
+      //   mask: 'MM{/}YY',
+      //   blocks: {
+      //     YY: {
+      //       mask: IMask.MaskedRange,
+      //       from: 0,
+      //       to: 99
+      //     },
+      //     MM: {
+      //       mask: IMask.MaskedRange,
+      //       from: 1,
+      //       to: 12
+      //     }
+      //   }
+      // });
+
+
+
+    });
+  </script>
+}

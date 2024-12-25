@@ -1,0 +1,8 @@
+﻿CREATE TABLE [rc].[Race]
+(
+  [Id] INT NOT NULL IDENTITY (1,1),
+  [Name] VARCHAR(100) NOT NULL, 
+  [Date] DATE NOT NULL, 
+  [IsValid] BIT NOT NULL, 
+    CONSTRAINT [PK_Race] PRIMARY KEY ([Id]),
+)

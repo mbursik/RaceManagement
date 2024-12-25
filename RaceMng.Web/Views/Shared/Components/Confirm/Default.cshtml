@@ -1,0 +1,64 @@
+﻿@using RaceMng.Web.Controllers;
+@*@model int*@
+
+@{
+    string action = ViewBag.VC_Action;
+    string message = ViewBag.VC_Message;
+    string icon = ViewBag.VC_Icon;
+    bool hideConfirmButton = ViewBag.VC_HideConfirmButton;
+    string confirmButtonName = ViewBag.VC_ConfirmButtonName;
+    string cancelButtonName = ViewBag.VC_CancelButtonName;
+    //string[] actionSplit = action.Split('/');
+}
+
+<div class="modal fade" data-bs-keyboard="false" data-bs-backdrop="static" style="z-index: 1060;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-toggle="hide-confirm">×</button> 	
+      </div>
+      <div class="modal-body font-16 col-12 text-center">
+
+                @if (!String.IsNullOrEmpty(icon))
+                {
+                    <div><img src="~/img/@icon" /></div>
+                }
+
+               @* @if (actionSplit.Length > 3)
+                {
+                  <form asp-controler="@actionSplit[2]" asp-action="@actionSplit[3]"> 
+                    <input type="hidden" name="id" value="@Model"/>
+                  </form>
+                }*@
+        <p>@Html.Raw(message)</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-toggle="hide-confirm">@cancelButtonName</button>
+        @if (!hideConfirmButton)
+        {
+          <button id="btnConfirm" type="button" class="btn btn-primary" @*data-toggle="save-confirm" data-actname="ConfirmDelete"*@>@confirmButtonName</button>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    $("#btnConfirm").click(()=>{
+      var postvar = "@Html.Raw(action)".split('?');
+          console.log(postvar[0], postvar[1]);
+      $.post(postvar[0], postvar[1]).done((data) => {
+        //console.log('POST Successful');
+        $("#placeholder-confirm").find('.modal').modal('hide');
+        location.reload();
+      }).fail((xhr, status, error) => {
+        errMsgAlert(xhr);
+      });
+
+    });
+
+  });
+
+</script>                

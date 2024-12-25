@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="6ca82c19-c64f-4fd5-a6ed-8049dd30f6c3" ChangeDateTime="01/17/2023 19:39:13">
+    <Property Name="ElementName" Value="[dbo].[Competitor].[Se]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Competitor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Sex_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a5dbce51-8395-446b-945f-aaf4e14406dc" ChangeDateTime="01/18/2023 19:13:10">
+    <Property Name="ElementName" Value="[dbo].[RaceCompetitor].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[RaceCompetitor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Race_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0a7409da-f7da-44b7-b82e-458429169767" ChangeDateTime="01/18/2023 19:24:24">
+    <Property Name="ElementName" Value="[dbo].[Race].[IsActive]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Race]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsValid" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="86e6bb4e-5d20-4e4c-aa87-6f21fc99985f" ChangeDateTime="01/18/2023 19:39:47">
+    <Property Name="ElementName" Value="[dbo].[CompetitorCategory].[Time]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompetitorCategory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Created" />
+  </Operation>
+</Operations>
