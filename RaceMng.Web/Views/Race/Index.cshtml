@@ -1,21 +1,26 @@
-﻿@using RaceMng.Models.VM
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+@using RaceMng.Models.VM
+@using RaceMng.Web.Resources
+@inject IViewLocalizer Localizer
+@* @inject IStringLocalizer<RaceMng.Web.Resources.Views.Race.Index> Loc *@
 
 @model RaceListVM
 
 @{
-  ViewData["Title"] = "Závod";
+  ViewData["Title"] = @Localizer["Race"];
 }
 
 <div class="card">
   <div class="card-header">
-    Závod
+    @Localizer["Race"]
   </div>
   <div class="card-body">
     <div class="d-inline">
-      <button type="button" class="btn btn-primary" data-toggle="show-modal" data-actname="" data-url="@Url.Action("CreateCompetitorCategory")">Přidat účastníka</button>
-      <button id="btnStartList" type="button" class="btn btn-primary">Startovní listina</button>
-      <button id="btnResults" type="button" class="btn btn-primary">Výsledková listina</button>
-      <button type="button" class="btn btn-primary" data-toggle="show-modal" data-url="@Url.Action("AddTimes")">Vložit časy</button>
+      <button type="button" class="btn btn-primary" data-toggle="show-modal" data-actname="" data-url="@Url.Action("CreateCompetitorCategory")">@Localizer["AddParticipant"]</button>
+      <button id="btnStartList" type="button" class="btn btn-primary">@Localizer["StartList"]</button>
+      <button id="btnResults" type="button" class="btn btn-primary">@Localizer["Results"]</button>
+      <button type="button" class="btn btn-primary" data-toggle="show-modal" data-url="@Url.Action("AddTimes")">@Localizer["InsertTimes"]</button>
     </div>
 
     <form id="formIndex" asp-action="Index" asp-controller="Race" method="post">

@@ -61,7 +61,7 @@ namespace RaceMng.Models.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kategorie.
+        ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string Name {
             get {

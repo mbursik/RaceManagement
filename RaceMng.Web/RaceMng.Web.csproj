@@ -9,19 +9,15 @@
   <ItemGroup>
     <Compile Remove="Data\**" />
     <Compile Remove="MyModels\**" />
-    <Compile Remove="Resources\**" />
     <Compile Remove="ViewModels\**" />
     <Content Remove="Data\**" />
     <Content Remove="MyModels\**" />
-    <Content Remove="Resources\**" />
     <Content Remove="ViewModels\**" />
     <EmbeddedResource Remove="Data\**" />
     <EmbeddedResource Remove="MyModels\**" />
-    <EmbeddedResource Remove="Resources\**" />
     <EmbeddedResource Remove="ViewModels\**" />
     <None Remove="Data\**" />
     <None Remove="MyModels\**" />
-    <None Remove="Resources\**" />
     <None Remove="ViewModels\**" />
   </ItemGroup>
 
@@ -39,6 +35,24 @@
   <ItemGroup>
     <ProjectReference Include="..\RaceMng.Models\RaceMng.Models.csproj" />
     <ProjectReference Include="..\RaceMng.Services\RaceMng.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Views\Race\Index.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Index.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Views\Race\Index.cs-CZ.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Race\Index.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

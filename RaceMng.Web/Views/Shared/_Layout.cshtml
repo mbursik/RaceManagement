@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -24,12 +26,18 @@
               <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
             </li> *@
             <li class="nav-item">
-              <a class="nav-link" asp-area="" asp-controller="Race" asp-action="Index">Závod</a>
+              <a class="nav-link" asp-area="" asp-controller="Race" asp-action="Index">@Localizer["Race"]</a>
             </li>
            @* <li class="nav-item">
               <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
             </li>*@
           </ul>
+        </div>
+        <div>
+          <p>
+            <a href="/en-US">EN</a> |
+            <a href="/cs-CZ">CZ</a>
+          </p>
         </div>
       </div>
     </nav>

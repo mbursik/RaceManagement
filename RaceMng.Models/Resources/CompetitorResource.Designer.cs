@@ -61,7 +61,7 @@ namespace RaceMng.Models.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ročník.
+        ///   Looks up a localized string similar to Birth Year.
         /// </summary>
         public static string BirthYear {
             get {
@@ -70,7 +70,7 @@ namespace RaceMng.Models.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jméno.
+        ///   Looks up a localized string similar to First Name.
         /// </summary>
         public static string FirstName {
             get {
@@ -79,7 +79,7 @@ namespace RaceMng.Models.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Příjmení.
+        ///   Looks up a localized string similar to Last Name.
         /// </summary>
         public static string LastName {
             get {
@@ -88,7 +88,7 @@ namespace RaceMng.Models.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pohlaví.
+        ///   Looks up a localized string similar to Sex.
         /// </summary>
         public static string SexId {
             get {
@@ -97,7 +97,7 @@ namespace RaceMng.Models.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oddíl.
+        ///   Looks up a localized string similar to Team.
         /// </summary>
         public static string Team {
             get {

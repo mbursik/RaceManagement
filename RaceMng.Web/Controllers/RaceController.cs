@@ -14,6 +14,7 @@ using RaceMng.Database.Models.Bos;
 using RaceMng.Services.Services;
 using System.Linq.Expressions;
 using RaceMng.Web.Classes;
+using System.Globalization;
 
 
 namespace RaceMng.Web.Controllers
@@ -39,6 +40,8 @@ namespace RaceMng.Web.Controllers
     // GET: RaceController
     public ActionResult Index(RaceListVM model)
     {
+
+      var xxx = CultureInfo.CurrentUICulture.Name;
 
       ViewData["Categories"] = new SelectList(_categoryService.GetValidCategories(), "Id", "Name");
 

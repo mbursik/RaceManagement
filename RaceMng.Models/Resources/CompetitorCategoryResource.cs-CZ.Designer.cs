@@ -22,14 +22,14 @@ namespace RaceMng.Models.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class CompetitorCategoryResource {
+    public class CompetitorCategoryResource_cs_CZ___Copy {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CompetitorCategoryResource() {
+        internal CompetitorCategoryResource_cs_CZ___Copy() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace RaceMng.Models.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RaceMng.Models.Resources.CompetitorCategoryResource", typeof(CompetitorCategoryResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RaceMng.Models.Resources.CompetitorCategoryResource.cs-CZ - Copy", typeof(CompetitorCategoryResource_cs_CZ___Copy).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace RaceMng.Models.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Created.
+        ///   Looks up a localized string similar to Vytvořeno.
         /// </summary>
         public static string Created {
             get {
@@ -70,7 +70,7 @@ namespace RaceMng.Models.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number.
+        ///   Looks up a localized string similar to Číslo.
         /// </summary>
         public static string Number {
             get {
@@ -79,7 +79,7 @@ namespace RaceMng.Models.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Time.
+        ///   Looks up a localized string similar to Čas.
         /// </summary>
         public static string Time {
             get {

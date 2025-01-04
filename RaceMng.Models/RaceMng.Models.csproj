@@ -7,13 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\CategoryResource.cs-CZ.Designer.cs">
+      <DependentUpon>CategoryResource.cs-CZ.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Resources\CategoryResource.Designer.cs">
       <DependentUpon>CategoryResource.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Update="Resources\CompetitorCategoryResource.cs-CZ.Designer.cs">
+      <DependentUpon>CompetitorCategoryResource.cs-CZ.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Resources\CompetitorCategoryResource.Designer.cs">
       <DependentUpon>CompetitorCategoryResource.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Resources\CompetitorResource.cs-CZ.Designer.cs">
+      <DependentUpon>CompetitorResource.cs-CZ.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
@@ -30,12 +45,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\CategoryResource.cs-CZ.resx">
+      <LastGenOutput>CategoryResource.cs-CZ.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\CategoryResource.resx">
       <LastGenOutput>CategoryResource.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\CompetitorCategoryResource.cs-CZ.resx">
+      <LastGenOutput>CompetitorCategoryResource.cs-CZ.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\CompetitorCategoryResource.resx">
       <LastGenOutput>CompetitorCategoryResource.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\CompetitorResource.cs-CZ.resx">
+      <LastGenOutput>CompetitorResource.cs-CZ.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\CompetitorResource.resx">
