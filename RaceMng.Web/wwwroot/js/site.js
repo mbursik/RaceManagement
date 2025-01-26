@@ -18,17 +18,13 @@ $(function () {
       placeholderModal.find('.modal').modal('show');
 
       //switch (actName) {
-      //    case 'CreateRelease':
-      //        $("#Year, #CountryID").change((e) => {
-
-      //        });
-      //        break;
+      //    case '':
+      //      break;
       //}
 
     }).fail((xhr, status, error) => {
       errMsgAlert(xhr);
     });
-
 
   });
 
@@ -38,7 +34,7 @@ $(function () {
     var actName = $(e.currentTarget).data('actname');
 
     switch (actName) {
-      //case 'CreateAnnualDemand':
+      //case '':
       //break;
 
       default:
@@ -66,11 +62,8 @@ $(function () {
           });
 
         }
-        else return false;
-
-
+      else return false;
     }
-
 
   });
 
@@ -92,43 +85,11 @@ $(function () {
         $.get(url).done((data) => {
           placeholderConfirm.html(data);
           placeholderConfirm.find('.modal').modal('show');
-          //placeholderModal.append(data);
-          //placeholderConfirm.find('[data-component="confirm"] .modal').modal('show');
-          
+         
         });
-
     }
 
   });
-
-/*
-  //save data from confirm form
-  placeholderConfirm.on('click', '[data-toggle="save-confirm"]', (e) => {
-    var actName = $(e.currentTarget).data('actname');
-
-
-    //switch (actName) {
-
-    //  case 'ConfirmDelete':
-
-    //    var form = $(e.currentTarget).parents('.modal').find('form');
-    //    var actionUrl = form.attr('action');
-    //    var sendData = form.serialize();
-
-    //    $.post(actionUrl, sendData).done((data) => {
-    //      placeholderConfirm.find('.modal').modal('hide');
-    //      location.reload();
-
-    //    }).fail((xhr, status, error) => {
-    //      errMsgAlert(xhr);
-    //    });
-
-    //    break;
-     
-    //}
-
-  });
-  */
 
   //close confirm form
   placeholderConfirm.on('click', '[data-toggle="hide-confirm"]', (e) => {
@@ -137,8 +98,61 @@ $(function () {
   });
 
 
+  //Mask for time input fields
+  $("[data-mask='time']").each(function () {
+    var timeElement = this;
+    var timeMask = new IMask(timeElement, {
+      mask: 'HH{:}MM{:}SS',
+      blocks: {
+        HH: {
+          mask: IMask.MaskedRange,
+          from: 0,
+          to: 23
+        },
+        MM: {
+          mask: IMask.MaskedRange,
+          from: 0,
+          to: 59
+        },
+        SS: {
+          mask: IMask.MaskedRange,
+          from: 0,
+          to: 59
+        }
+      }
+    });
+  });
+   
+
 });
 
+//Mask for time text field 
+$.fn.maskTime = function () {
+  return this.each(function () {
+    var timeElement = this;
+    var timeMask = new IMask(timeElement, {
+      mask: 'HH{:}MM{:}SS',
+      blocks: {
+        HH: {
+          mask: IMask.MaskedRange,
+          from: 0,
+          to: 23
+        },
+        MM: {
+          mask: IMask.MaskedRange,
+          from: 0,
+          to: 59
+        },
+        SS: {
+          mask: IMask.MaskedRange,
+          from: 0,
+          to: 59
+        }
+      }
+    });
+
+  });
+};
 
 
 // Definování nové metody jako součásti jQuery
@@ -146,13 +160,31 @@ $.fn.setupAutocomplete = function (url) {
   return this.each(function () {
     $(this).autocomplete({
       source: function (request, response) {
-        $.post(url, { "term": request.term }).done((data) => {
-          response($.map(data, function (item) {
-            return item;
-          }));
-        }).fail((xhr, status, error) => {
-          errMsgAlert(xhr);
+
+        $.ajax({
+          url: url,
+          type: 'POST', 
+          data: { "term": request.term },
+          success: function (data) {
+            response($.map(data, function (item) {
+              return item;
+            }));
+          },
+          error: function (xhr, status, error) {
+            console.error("AJAX Error:", status, error);
+            errMsgAlert(xhr);
+          }
         });
+
+
+        //$.post(url, { "term": request.term }).done((data) => {
+        //  response($.map(data, function (item) {
+        //    return item;
+        //  }));
+        //}).fail((xhr, status, error) => {
+        //  errMsgAlert(xhr);
+        //});
+
       }
     });
   });

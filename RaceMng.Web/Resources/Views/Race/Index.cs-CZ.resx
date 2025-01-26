@@ -120,6 +120,12 @@
   <data name="AddParticipant" xml:space="preserve">
     <value>Přidat účastníka</value>
   </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategorie</value>
+  </data>
+  <data name="Choose" xml:space="preserve">
+    <value>Vyberte</value>
+  </data>
   <data name="InsertTimes" xml:space="preserve">
     <value>Vložit časy</value>
   </data>

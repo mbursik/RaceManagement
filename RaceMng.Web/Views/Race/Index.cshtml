@@ -25,9 +25,9 @@
 
     <form id="formIndex" asp-action="Index" asp-controller="Race" method="post">
       <div class="col-auto">
-        <label>Kategorie:</label>
+        <label>@Localizer["Category"]:</label>
         <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control">
-          <option value="">-- Vyberte --</option>
+          <option value="">-- @Localizer["Choose"] --</option>
         </select>
       </div>
 

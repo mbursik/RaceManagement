@@ -1,4 +1,5 @@
 ﻿@using RaceMng.Models.VM
+@using System.Globalization
 @model CompetitorCategoryVM
 
 @{
@@ -64,7 +65,7 @@
           <div class="row mb-2">
             <label asp-for="TimeString" class="control-label text-end col-md-2" title="Format hh:mm:ss.fffffff"></label>
             <div class="col-md-10">
-              <input asp-for="TimeString" class="form-control" placeholder="00:00:00" />
+              <input asp-for="TimeString" class="form-control" placeholder="00:00:00" data-mask="time" />
               <span asp-validation-for="TimeString" class="text-danger"></span>
             </div>
           </div>
@@ -84,11 +85,16 @@
   $(function () {
       //console.log("jQuery works - _CreateCompetitorCategoryPartial.cshtml");
 
-      $("#Competitor_FirstName").setupAutocomplete('/Race/AutocompleteFirstName');
+      $("#Competitor_FirstName").setupAutocomplete('/@(CultureInfo.CurrentUICulture.Name)/Race/AutocompleteFirstName');
 
-      $("#Competitor_LastName").setupAutocomplete('/Race/AutocompleteLastName');
+      $("#Competitor_LastName").setupAutocomplete('/@(CultureInfo.CurrentUICulture.Name)/Race/AutocompleteLastName');
 
-      $("#Competitor_Team").setupAutocomplete('/Race/AutocompleteTeam');
+      $("#Competitor_Team").setupAutocomplete('/@(CultureInfo.CurrentUICulture.Name)/Race/AutocompleteTeam');
+
+
+      $("[data-mask='time']").maskTime();
+
+
 
       //focus on first textbox
       setTimeout(function () {

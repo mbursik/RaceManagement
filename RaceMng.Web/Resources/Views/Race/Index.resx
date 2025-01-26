@@ -120,6 +120,12 @@
   <data name="AddParticipant" xml:space="preserve">
     <value>Add participant</value>
   </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Choose" xml:space="preserve">
+    <value>Choose</value>
+  </data>
   <data name="InsertTimes" xml:space="preserve">
     <value>Insert times</value>
   </data>
